@@ -1,0 +1,42 @@
+# Project: 大眼袋的小电梯
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o State.o Control.o Input.o Output.o $(RES)
+LINKOBJ  = main.o State.o Control.o Input.o Output.o $(RES)
+LIBS =  -L"d:/Program Files/DEV-CPP/Lib" libegg22.a  -g3 
+INCS =  -I"d:/Program Files/DEV-CPP/include" 
+CXXINCS =  -I"d:/Program Files/DEV-CPP/lib/gcc/mingw32/3.4.2/include"  -I"d:/Program Files/DEV-CPP/include/c++/3.4.2/backward"  -I"d:/Program Files/DEV-CPP/include/c++/3.4.2/mingw32"  -I"d:/Program Files/DEV-CPP/include/c++/3.4.2"  -I"d:/Program Files/DEV-CPP/include" 
+BIN  = 大眼袋的小电梯.exe
+CXXFLAGS = $(CXXINCS)   -g3
+CFLAGS = $(INCS)   -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before 大眼袋的小电梯.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "大眼袋的小电梯.exe" $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+State.o: State.c
+	$(CC) -c State.c -o State.o $(CFLAGS)
+
+Control.o: Control.c
+	$(CC) -c Control.c -o Control.o $(CFLAGS)
+
+Input.o: Input.c
+	$(CC) -c Input.c -o Input.o $(CFLAGS)
+
+Output.o: Output.c
+	$(CC) -c Output.c -o Output.o $(CFLAGS)
